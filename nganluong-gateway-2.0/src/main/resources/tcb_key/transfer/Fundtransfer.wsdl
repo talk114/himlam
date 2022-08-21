@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:WL5G3N2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:WL5G3N3="http://www.techcombank.com.vn/services/bank/collection/v1" xmlns:WL5G3N4="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" targetNamespace="http://www.techcombank.com.vn/services/bank/collection/v1">
+	<WL5G3N0:types>
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.techcombank.com.vn/services/bank/collection/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:semt="http://www.techcombank.com.vn/services/bank/collection/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://www.techcombank.com.vn/services/bank/collection/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.techcombank.com.vn/services/bank/collection/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="InqBnkInfReq" type="InquiryBankInfoRequestV01">
+		<xs:annotation>
+			<xs:documentation>Truy van thong tin ma ngan hang</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InqBnkInfReq_Val" type="InquiryBankInfoRequestV01_Val">
+		<xs:annotation>
+			<xs:documentation>Truy van thong tin ma ngan hang</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InqBnkInfRspn" type="InquiryBankInfoResponseV01">
+		<xs:annotation>
+			<xs:documentation>Truy van thong tin ma ngan hang (Response)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InqHistrclTxsReq" type="InquiryHistoricalTransactionsRequestV01">
+		<xs:annotation>
+			<xs:documentation>Truy van thong tin tai khoan</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InqHistrclTxsReq_Val" type="InquiryHistoricalTransactionsRequestV01_Val">
+		<xs:annotation>
+			<xs:documentation>Truy van thong tin tai khoan</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InqHistrclTxsRspn" type="InquiryHistoricalTransactionsResponseV01">
+		<xs:annotation>
+			<xs:documentation>Truy van thong tin tai khoan (Response)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InqTxStsReq" type="InquiryTransactionStatusRequestV01">
+		<xs:annotation>
+			<xs:documentation>Truy van thong tin tai khoan</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InqTxStsReq_Val" type="InquiryTransactionStatusRequestV01_Val">
+		<xs:annotation>
+			<xs:documentation>Truy van thong tin tai khoan</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InqTxStsRspn" type="InquiryTransactionStatusResponseV01">
+		<xs:annotation>
+			<xs:documentation>Truy van thong tin tai khoan (Response)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="XferReq" type="FundTransferRequestV01">
+		<xs:annotation>
+			<xs:documentation>Thuc hien yeu cau chuyen tien</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="XferReq_Val" type="FundTransferRequestV01_Val">
+		<xs:annotation>
+			<xs:documentation>Thuc hien yeu cau chuyen tien</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="XferRspn" type="FundTransferResponseV01">
+		<xs:annotation>
+			<xs:documentation>Thuc hien yeu cau chuyen tien (Response)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="AccountIdentifer1">
+		<xs:sequence>
+			<xs:element name="AcctIdrTp" type="Max70Text" minOccurs="0"/>
+			<xs:element name="AcctIdrVal" type="Max36Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AccountInformation1">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="AcctId" type="Max35Text">
+					<xs:annotation>
+						<xs:documentation>Tai khoan ngan hang</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="AcctIdr" type="AccountIdentifer1" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Thong tin xac dinh tai khoan khac VD: CMND/Passport</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="AcctTitl" type="Max140Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tên tài khoản ngan hang </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FIData" type="FinancialInstitutionData1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Thong tin ngan hang</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PtyData" type="PartyData1" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Thong tin khach hang VD: TK chung khoan</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdditionalInformation6">
+		<xs:sequence>
+			<xs:element name="InfTp" type="ExternalInformationType1Code"/>
+			<xs:element name="InfVal" type="Max350Text"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BankInfoRecord1">
+		<xs:annotation>
+			<xs:documentation>Thong tin chi tiet cho tung ngan hang</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="FinancialInstitutionData1">
+				<xs:sequence>
+					<xs:element name="ActvSts" type="Max16Text" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Trang thai</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AddInf" type="Max140Text" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Thong tin bo sung cho ngan hang</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CustomPartyIdentification1">
+		<xs:sequence>
+			<xs:element name="Nm" type="Max70Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>NAME</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShrtDesc" type="Max105Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>SHORT DESCRIPTION</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CustomValidationStatusInformation1">
+		<xs:sequence>
+			<xs:element name="Sts" type="CustomTechnicalValidationStatus1Code"/>
+			<xs:element name="AddtlStsRsnInf" type="Max350Text" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DateTimeFrame1">
+		<xs:sequence>
+			<xs:element name="StartDt" type="ISODate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Start Date (YYYY-MM-DD)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EndDt" type="ISODate">
+				<xs:annotation>
+					<xs:documentation>End Date (YYYY-MM-DD)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TmRg" type="TimeRange1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Time Range</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EnvironmentInformation">
+		<xs:annotation>
+			<xs:documentation>Environment Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TrgtPty" type="CustomPartyIdentification1">
+				<xs:annotation>
+					<xs:documentation>Provider Basic Information.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SrcPty" type="CustomPartyIdentification1">
+				<xs:annotation>
+					<xs:documentation>Consumer Basic Information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Rqstr" type="CustomPartyIdentification1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Thong tin nguoi/he thong yeu cau. VD: Customer ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddInf" type="Max140Text" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>6. Thong tin bo sung</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FinancialInstitutionData1">
+		<xs:sequence>
+			<xs:element name="CITAD" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ma citad </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BkId" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ma ngan hang</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BkNm" type="Max255Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ten ngan hang</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BrnchId" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ma chi nhanh</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BrnchNm" type="Max255Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ten chi nhanh</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StatPrvc" type="Max140Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Vung hoac tinh (State or Province)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FundTransferRequestV01">
+		<xs:sequence>
+			<xs:element name="ReqGnlInf" type="GeneralInformation">
+				<xs:annotation>
+					<xs:documentation>Thong tin Request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Envt" type="EnvironmentInformation">
+				<xs:annotation>
+					<xs:documentation>Environment Information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReqInf" type="xs:anyType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FundTransferRequestV01_Val">
+		<xs:sequence>
+			<xs:element name="ReqGnlInf" type="GeneralInformation">
+				<xs:annotation>
+					<xs:documentation>Thong tin Request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Envt" type="EnvironmentInformation">
+				<xs:annotation>
+					<xs:documentation>Environment Information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReqInf" type="RequestKeysInformation1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FundTransferResponseV01">
+		<xs:sequence>
+			<xs:element name="RspnInf" type="GeneralInformation">
+				<xs:annotation>
+					<xs:documentation>Thong tin response</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RspnSts">
+				<xs:annotation>
+					<xs:documentation>ReceptionConfirmationReceptionError</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="CustomValidationStatusInformation1"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TxInf" type="ResponseInformation1" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeneralInformation">
+		<xs:annotation>
+			<xs:documentation>Phan thong tin chung cho ca Request va Response</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="Max45Text">
+				<xs:annotation>
+					<xs:documentation>1. Transaction Id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxId" type="Max70Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>UUID/ Unique ID do he thong middleware/client generate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CreDtTm" type="ISODateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>YYYY-MM-DDThh:mm:ss</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PmtTp" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Payment Type</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="35"/>
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Desc" type="Max350Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Description</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HeaderHashStr" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+						<xs:maxLength value="1024"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Sgntr" type="SignatureData" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HistoricalTransactionRecord1">
+		<xs:annotation>
+			<xs:documentation>Thong tin chi tiet cho giao dich</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TxId" type="Max105Text">
+				<xs:annotation>
+					<xs:documentation>Transaction Id (So but toan FT)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrAcct" type="AccountInformation1">
+				<xs:annotation>
+					<xs:documentation>From Account</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ToAcct" type="AccountInformation1">
+				<xs:annotation>
+					<xs:documentation>To Account</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxDt" type="ISODate">
+				<xs:annotation>
+					<xs:documentation>Transaction Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxTm" type="ISOTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Transaction Time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxAmt" type="DecimalNumber">
+				<xs:annotation>
+					<xs:documentation>Transaction Amount</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeAmt" type="DecimalNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fee Amount</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Desc" type="Max350Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Dien giai cua giao dich</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxTp" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Transaction Type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxTpDesc" type="Max105Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Transaction Type Description</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxCd" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Transaction Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxCdDesc" type="Max105Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Transaction Code Description</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IntlTx" type="Max105Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Internal Transaction</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StmtNtry" type="Max105Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Statement Entry</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RefId" type="Max105Text" minOccurs="0"/>
+			<xs:element name="AddInf" type="Max140Text" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>hong tin bo sung cho giao dich</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryAccountGuaranteeRequestV01">
+		<xs:sequence>
+			<xs:element name="ReqGnlInf" type="GeneralInformation"/>
+			<xs:element name="Envt" type="EnvironmentInformation"/>
+			<xs:element name="ReqInf" type="RequestKeysInformation5"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryAccountGuaranteeResponseV01">
+		<xs:sequence>
+			<xs:element name="RspnInf" type="GeneralInformation"/>
+			<xs:element name="RspnSts" type="CustomValidationStatusInformation1">
+				<xs:annotation>
+					<xs:documentation>ReceptionConfirmationReceptionError</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxRcrd" type="AccountBalanceRecord1" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryBankInfoRequestV01">
+		<xs:sequence>
+			<xs:element name="ReqGnlInf" type="GeneralInformation"/>
+			<xs:element name="Envt" type="EnvironmentInformation"/>
+			<xs:element name="ReqInf" type="xs:anyType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryBankInfoRequestV01_Val">
+		<xs:sequence>
+			<xs:element name="ReqGnlInf" type="GeneralInformation"/>
+			<xs:element name="Envt" type="EnvironmentInformation"/>
+			<xs:element name="ReqInf" type="RequestKeysInformation4"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryBankInfoResponseV01">
+		<xs:sequence>
+			<xs:element name="RspnInf" type="GeneralInformation"/>
+			<xs:element name="RspnSts" type="CustomValidationStatusInformation1">
+				<xs:annotation>
+					<xs:documentation>ReceptionConfirmationReceptionError</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BkInfRcrd" type="BankInfoRecord1" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryHistoricalTransactionsRequestV01">
+		<xs:sequence>
+			<xs:element name="ReqGnlInf" type="GeneralInformation"/>
+			<xs:element name="Envt" type="EnvironmentInformation"/>
+			<xs:element name="ReqInf" type="xs:anyType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryHistoricalTransactionsRequestV01_Val">
+		<xs:sequence>
+			<xs:element name="ReqGnlInf" type="GeneralInformation"/>
+			<xs:element name="Envt" type="EnvironmentInformation"/>
+			<xs:element name="ReqInf" type="RequestKeysInformation3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryHistoricalTransactionsResponseV01">
+		<xs:sequence>
+			<xs:element name="RspnInf" type="GeneralInformation"/>
+			<xs:element name="RspnSts" type="CustomValidationStatusInformation1">
+				<xs:annotation>
+					<xs:documentation>ReceptionConfirmationReceptionError</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxRcrd" type="HistoricalTransactionRecord1" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryTransactionStatusRequestV01">
+		<xs:sequence>
+			<xs:element name="ReqGnlInf" type="GeneralInformation"/>
+			<xs:element name="Envt" type="EnvironmentInformation"/>
+			<xs:element name="ReqInf" type="xs:anyType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryTransactionStatusRequestV01_Val">
+		<xs:sequence>
+			<xs:element name="ReqGnlInf" type="GeneralInformation"/>
+			<xs:element name="Envt" type="EnvironmentInformation"/>
+			<xs:element name="ReqInf" type="RequestKeysInformation2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InquiryTransactionStatusResponseV01">
+		<xs:sequence>
+			<xs:element name="RspnInf" type="GeneralInformation"/>
+			<xs:element name="RspnSts" type="CustomValidationStatusInformation1">
+				<xs:annotation>
+					<xs:documentation>ReceptionConfirmationReceptionError</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxRcrd" type="TxRcrdV1" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PartyData1">
+		<xs:sequence>
+			<xs:element name="Tp" type="Max70Text">
+				<xs:annotation>
+					<xs:documentation>Type VD: VendorAcct</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Val" type="Max105Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Desc" type="Max255Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Description</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestKeysInformation1">
+		<xs:sequence>
+			<xs:element name="TxTp" type="Max16Text">
+				<xs:annotation>
+					<xs:documentation>Transaction type VD: TCB, CITAD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxDt" type="ISODate">
+				<xs:annotation>
+					<xs:documentation>Transaction Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrAcct" type="AccountInformation1">
+				<xs:annotation>
+					<xs:documentation>Thong tin tai khoan nguon</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ToAcct" type="AccountInformation1">
+				<xs:annotation>
+					<xs:documentation>Thong tin tai khoan dich</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxAmt" type="DecimalNumber">
+				<xs:annotation>
+					<xs:documentation>So tien giao dich</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RefId" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ma tham chieu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Desc" type="Max350Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Dien giai cua giao dich</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestKeysInformation2">
+		<xs:annotation>
+			<xs:documentation>Truy van trang thai thanh toan cua giao dich</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ReqTxId" type="Max70Text">
+				<xs:annotation>
+					<xs:documentation>Ma giao dich can truy van</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Desc" type="Max350Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Dien giai cua giao dich</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QryKey" type="AdditionalInformation6" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Additional Information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestKeysInformation3">
+		<xs:annotation>
+			<xs:documentation>Truy van lich su cac giao dich theo thoi gian</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AcctId" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>So tai khoan</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DtTmRg" type="DateTimeFrame1">
+				<xs:annotation>
+					<xs:documentation>DateTime Range</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Chanl" type="Max16Text">
+				<xs:annotation>
+					<xs:documentation>Internal Transaction</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Desc" type="Max350Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Dien giai cua giao dich</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QryKey" type="AdditionalInformation6" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Additional Information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestKeysInformation4">
+		<xs:annotation>
+			<xs:documentation>Lay thong tin toan bo ma ngan hang</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BkId" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Bank Id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Desc" type="Max350Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Dien giai cua giao dich</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QryKey" type="AdditionalInformation6" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Additional Information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestKeysInformation5">
+		<xs:annotation>
+			<xs:documentation>Truy van so du tai khoan dam bao</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CustomerId" type="Max16Text" minOccurs="0"/>
+			<xs:element name="CustomerAcct" type="Max16Text" minOccurs="0"/>
+			<xs:element name="Category" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="65"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Branch" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence minOccurs="0">
+						<xs:element name="Cd" type="Max16Text"/>
+						<xs:element name="Nm" type="Max140Text" minOccurs="0"/>
+						<xs:element name="Mne" type="Max105Text" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Custom" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence minOccurs="0"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseInformation1">
+		<xs:sequence>
+			<xs:element name="RefId" type="Max105Text">
+				<xs:annotation>
+					<xs:documentation>Ma tham chieu cua ngan hang (So but toan FT)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeAmt" type="DecimalNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fee Amount</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddInf" type="Max105Text" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SignatureData">
+		<xs:sequence>
+			<xs:element name="Sgntr1" type="Max350Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Signature Data 1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Sgntr2" type="Max350Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Signature Data 1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StatusReason4Choice">
+		<xs:choice>
+			<xs:element name="Cd" type="FinancingStatusReason1Code"/>
+			<xs:element name="Prtry" type="Max35Text"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="TimeRange1">
+		<xs:sequence>
+			<xs:element name="StartTm" type="ISOTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Start Time (hh:mm:ss) - he thong 24h</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EndTm" type="ISOTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>End Time (hh:mm:ss) - he thong 24h</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AccountBalanceRecord1">
+		<xs:annotation>
+			<xs:documentation>Thong tin chi tiet cho giao dich</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="CustomerId" type="Max16Text" minOccurs="0"/>
+			<xs:element name="CustomerName" type="Max140Text" minOccurs="0"/>
+			<xs:element name="CustomerAcctList" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence minOccurs="0">
+						<xs:element name="BranchInfo" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Code" type="Max16Text"/>
+									<xs:element name="Name" type="Max140Text" minOccurs="0"/>
+									<xs:element name="Mnemonic" type="Max16Text" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AccNumber" type="Max35Text" minOccurs="0"/>
+						<xs:element name="AcctType" type="xs:string" minOccurs="0"/>
+						<xs:element name="AcctStatus" type="xs:string" minOccurs="0"/>
+						<xs:element name="AcctBalance" type="DecimalNumber" minOccurs="0"/>
+						<xs:element name="AcctCurrency" type="Max16Text" minOccurs="0"/>
+						<xs:element name="AcctOverdraftLimit" type="DecimalNumber" minOccurs="0"/>
+						<xs:element name="AcctBlockedAmt" type="DecimalNumber" minOccurs="0"/>
+						<xs:element name="AcctAvailAmt" type="DecimalNumber" minOccurs="0"/>
+						<xs:element name="AcctBalanceTime" type="Max35Text" minOccurs="0"/>
+						<xs:element name="OpenDate" type="ISODate" minOccurs="0"/>
+						<xs:element name="CloseDate" type="ISODate" minOccurs="0"/>
+						<xs:element name="CustID" type="Max16Text" minOccurs="0"/>
+						<xs:element name="CustName" type="Max140Text" minOccurs="0"/>
+						<xs:element name="Custom" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence minOccurs="0">
+									<xs:element name="ContractNo" type="Max35Text" minOccurs="0"/>
+									<xs:element name="ProductName" type="Max105Text" minOccurs="0"/>
+									<xs:element name="IntRate" type="DecimalNumber" minOccurs="0"/>
+									<xs:element name="Term" type="Max35Text" minOccurs="0"/>
+									<xs:element name="TermCd" type="Max35Text" minOccurs="0"/>
+									<xs:element name="Note" type="Max105Text" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransactionRecord1">
+		<xs:annotation>
+			<xs:documentation>Thong tin chi tiet cho giao dich</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TxSts" type="Max105Text">
+				<xs:annotation>
+					<xs:documentation>Transaction Status according to Request Transaction</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeAmt" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fee</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddInf" type="Max140Text" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Thong tin bo sung cho giao dich</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TxRcrdV1">
+		<xs:annotation>
+			<xs:documentation>Thong tin chi tiet cho giao dich</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ServiceID" type="Max35Text"/>
+			<xs:element name="ResCode" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Response code of core</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResMsg" type="Max140Text">
+				<xs:annotation>
+					<xs:documentation>Response message of core</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResResults" type="InqResResultsV1">
+				<xs:annotation>
+					<xs:documentation>Detail</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InqResResultsV1">
+		<xs:sequence>
+			<xs:element name="PartID" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Id of transaction</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxnSts" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Status code of Transaction in Core</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxnDes" type="Max140Text">
+				<xs:annotation>
+					<xs:documentation>Status description  of Transaction in Core</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxnDate" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Date of transaction if transaction has processed (yyyymmdd ; ex : 20190809)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TxnBnkID" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Transaction ID of TCB if have</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeAmt" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fee</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FeeCode" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fee code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ValidationStatusInformation1">
+		<xs:sequence>
+			<xs:element name="Sts" type="TechnicalValidationStatus1Code"/>
+			<xs:element name="StsRsn" type="StatusReason4Choice" minOccurs="0"/>
+			<xs:element name="AddtlStsRsnInf" type="Max105Text" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="CustomTechnicalValidationStatus1Code">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RCCF"/>
+			<xs:enumeration value="RCER"/>
+			<xs:enumeration value="PDG"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DecimalNumber">
+		<xs:annotation>
+			<xs:documentation>Decimal indicates a numeric value that meets the following rules:</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal"/>
+	</xs:simpleType>
+	<xs:simpleType name="ExternalInformationType1Code">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FinancingStatusReason1Code">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CA01"/>
+			<xs:enumeration value="CA02"/>
+			<xs:enumeration value="AC01"/>
+			<xs:enumeration value="AC04"/>
+			<xs:enumeration value="AC06"/>
+			<xs:enumeration value="BE08"/>
+			<xs:enumeration value="BE09"/>
+			<xs:enumeration value="BE10"/>
+			<xs:enumeration value="BE11"/>
+			<xs:enumeration value="DT02"/>
+			<xs:enumeration value="ID01"/>
+			<xs:enumeration value="ID02"/>
+			<xs:enumeration value="ID03"/>
+			<xs:enumeration value="MI01"/>
+			<xs:enumeration value="NA01"/>
+			<xs:enumeration value="CA03"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISODate">
+		<xs:annotation>
+			<xs:documentation>yyyy-MM-dd</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ISODateTime">
+		<xs:annotation>
+			<xs:documentation>yyyy-MM-ddThh:mm:ss</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2}(\.[0-9]{6})?((-|\+)[0-9]{2}:[0-9]{2})?)?)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISOTime">
+		<xs:restriction base="xs:time"/>
+	</xs:simpleType>
+	<xs:simpleType name="Max105Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="105"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max140Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="140"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max16Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max255Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max350Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="350"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max45Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="45"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max36Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max70Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="70"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TechnicalValidationStatus1Code">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RCCF"/>
+			<xs:enumeration value="RCER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="ReqInf"/>
+</xs:schema>
+	</WL5G3N0:types>
+	<WL5G3N0:message name="FundTransferRequest">
+		<WL5G3N0:part name="parameter" element="WL5G3N3:XferReq"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="FundTransferResponse">
+		<WL5G3N0:part name="parameter" element="WL5G3N3:XferRspn"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="InqTransactionStatusRequest">
+		<WL5G3N0:part name="parameter" element="WL5G3N3:InqTxStsReq"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="InqTransactionStatusResponse">
+		<WL5G3N0:part name="parameter" element="WL5G3N3:InqTxStsRspn"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="InqHistoricalTransactionsRequest">
+		<WL5G3N0:part name="parameter" element="WL5G3N3:InqHistrclTxsReq"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="InqHistoricalTransactionsResponse">
+		<WL5G3N0:part name="parameter" element="WL5G3N3:InqHistrclTxsRspn"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="InqBankInfoRequest">
+		<WL5G3N0:part name="parameter" element="WL5G3N3:InqBnkInfReq"/>
+	</WL5G3N0:message>
+	<WL5G3N0:message name="InqBankInfoResponse">
+		<WL5G3N0:part name="parameter" element="WL5G3N3:InqBnkInfRspn"/>
+	</WL5G3N0:message>
+	<WL5G3N0:portType name="TCBPortType">
+		<WL5G3N0:operation name="FundTransfer">
+			<WL5G3N0:input message="WL5G3N3:FundTransferRequest"/>
+			<WL5G3N0:output message="WL5G3N3:FundTransferResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="InqTransactionStatus">
+			<WL5G3N0:input message="WL5G3N3:InqTransactionStatusRequest"/>
+			<WL5G3N0:output message="WL5G3N3:InqTransactionStatusResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="InqHistoricalTransactions">
+			<WL5G3N0:input message="WL5G3N3:InqHistoricalTransactionsRequest"/>
+			<WL5G3N0:output message="WL5G3N3:InqHistoricalTransactionsResponse"/>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="InqListBankInfo">
+			<WL5G3N0:input message="WL5G3N3:InqBankInfoRequest"/>
+			<WL5G3N0:output message="WL5G3N3:InqBankInfoResponse"/>
+		</WL5G3N0:operation>
+	</WL5G3N0:portType>
+	<WL5G3N0:binding name="TCBBinding" type="WL5G3N3:TCBPortType">
+		<WL5G3N4:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<WL5G3N0:operation name="FundTransfer">
+			<WL5G3N4:operation soapAction="FundTransfer"/>
+			<WL5G3N0:input>
+				<wsp:Policy>
+					<wsp:PolicyReference URI="#Auth.xml"/>
+				</wsp:Policy>
+				<WL5G3N4:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N4:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="InqTransactionStatus">
+			<WL5G3N4:operation soapAction="urn:InqTransactionStatus"/>
+			<WL5G3N0:input>
+				<wsp:Policy>
+					<wsp:PolicyReference URI="#Auth.xml"/>
+				</wsp:Policy>
+				<WL5G3N4:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N4:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="InqHistoricalTransactions">
+			<WL5G3N4:operation soapAction="InqHistoricalTransactions"/>
+			<WL5G3N0:input>
+				<wsp:Policy>
+					<wsp:PolicyReference URI="#Auth.xml"/>
+				</wsp:Policy>
+				<WL5G3N4:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N4:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+		<WL5G3N0:operation name="InqListBankInfo">
+			<WL5G3N4:operation soapAction="InqListBankInfo"/>
+			<WL5G3N0:input>
+				<WL5G3N4:body use="literal"/>
+			</WL5G3N0:input>
+			<WL5G3N0:output>
+				<WL5G3N4:body use="literal"/>
+			</WL5G3N0:output>
+		</WL5G3N0:operation>
+	</WL5G3N0:binding>
+	<WL5G3N0:service name="TCBService">
+		<WL5G3N0:port name="TCBEndpoint" binding="WL5G3N3:TCBBinding">
+			<WL5G3N4:address location="https://localhost/services/bank/collection/PartnerToTCB/v1"/>
+		</WL5G3N0:port>
+	</WL5G3N0:service>
+	<WL5G3N1:Policy WL5G3N2:Id="Auth.xml">
+		<wssp:Identity xmlns:wssp="http://www.bea.com/wls90/security/policy">
+			<wssp:SupportedTokens>
+				<wssp:SecurityToken TokenType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#UsernameToken">
+					<wssp:UsePassword Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"/>
+				</wssp:SecurityToken>
+			</wssp:SupportedTokens>
+		</wssp:Identity>
+	</WL5G3N1:Policy>
+	<wsp:UsingPolicy WL5G3N0:Required="true"/>
+</WL5G3N0:definitions>

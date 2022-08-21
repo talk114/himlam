@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="NCCInput_Schema" xmlns:ns1="NCCWalletOutput_Schema" xmlns:ns4="MESSAGE_CONFIRM" xmlns:ns3="NCCOutput_Schema" xmlns:tns="BIDVWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="NCCWalletInput_Schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns5="MESSAGE_CONFIRM_WALLET" name="Untitled" targetNamespace="BIDVWS">
+    <wsdl:types>
+        <xs:schema xmlns="NCCInput_Schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="NCCInput_Schema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="root">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Service_Id" type="xs:string"/>
+                        <xs:element name="Merchant_Id" type="xs:string"/>
+                        <xs:element name="Merchant_Name" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Trandate" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Trans_Id" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Trans_Desc" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Amount" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Curr" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Payer_Id" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Payer_Name" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Payer_Addr" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Type" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Custmer_Id" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Customer_Name" type="xs:string" minOccurs="0"/>
+                        <xs:element name="IssueDate" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Secure_Code" type="xs:string"/>
+                        <xs:element name="FromProcess" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="NCCWalletInput_Schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="NCCWalletInput_Schema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="root">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Service_Id" type="xs:string"/>
+                        <xs:element name="Merchant_Id" type="xs:string"/>
+                        <xs:element name="Merchant_Name" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Trandate" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Trans_Id" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Trans_Desc" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Amount" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Curr" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Payer_Id" type="xs:string"/>
+                        <xs:element name="Payer_Name" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Payer_Addr" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Type" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Custmer_Id" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Customer_Name" type="xs:string" minOccurs="0"/>
+                        <xs:element name="IssueDate" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Channel_Id" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Link_Type" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Otp_Number" type="xs:string" minOccurs="0"/>
+                        <xs:element name="More_Info" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Secure_Code" type="xs:string"/>
+                        <xs:element name="FromProcess" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="NCCOutput_Schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="NCCOutput_Schema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="root">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Service_Id" type="xs:string"/>
+                        <xs:element name="Merchant_Id" type="xs:string"/>
+                        <xs:element name="Trandate" type="xs:string"/>
+                        <xs:element name="Trans_Id" type="xs:string"/>
+                        <xs:element name="Response_Code" type="xs:string"/>
+                        <xs:element name="Response_TxnCode" type="xs:string" minOccurs="0"/>
+                        <xs:element name="List" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Redirect_Url" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Secure_Code" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="NCCWalletOutput_Schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="NCCWalletOutput_Schema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="root">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Service_Id" type="xs:string"/>
+                        <xs:element name="Merchant_Id" type="xs:string"/>
+                        <xs:element name="Trandate" type="xs:string"/>
+                        <xs:element name="Trans_Id" type="xs:string"/>
+                        <xs:element name="Response_Code" type="xs:string"/>
+                        <xs:element name="Response_TxnCode" type="xs:string" minOccurs="0"/>
+                        <xs:element name="List" type="xs:string" minOccurs="0"/>
+                        <xs:element name="More_Info" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Redirect_Url" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Secure_Code" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="MESSAGE_CONFIRM_WALLET" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="MESSAGE_CONFIRM_WALLET" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="MSG">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="MESSAGE_CODE" type="xs:string"/>
+                        <xs:element name="PAYER_ID" type="xs:string" minOccurs="0"/>
+                        <xs:element name="TRAN_ID" type="xs:string" minOccurs="0"/>
+                        <xs:element name="TRAN_STATE" type="xs:string" minOccurs="0"/>
+                        <xs:element name="AMOUNT" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ACCOUNT" type="xs:string" minOccurs="0"/>
+                        <xs:element name="TRAN_DATE" type="xs:string" minOccurs="0"/>
+                        <xs:element name="SERVICE" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="SERVICE_ID" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="SERVICE_PROFILE" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="PROVIDER_INFO" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="SERVICE_INFO" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ERRCODE" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ERRDESC" type="xs:string" minOccurs="0"/>
+                        <xs:element name="URL" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="MESSAGE_CONFIRM" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="MESSAGE_CONFIRM" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="MSG">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="MESSAGE_CODE" type="xs:string"/>
+                        <xs:element name="PAYER_ID" type="xs:string" minOccurs="0"/>
+                        <xs:element name="TRAN_ID" type="xs:string" minOccurs="0"/>
+                        <xs:element name="TRAN_STATE" type="xs:string" minOccurs="0"/>
+                        <xs:element name="AMOUNT" type="xs:string" minOccurs="0"/>
+                        <xs:element name="TRAN_DATE" type="xs:string" minOccurs="0"/>
+                        <xs:element name="SERVICE" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="SERVICE_ID" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="SERVICE_PROFILE" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="CHANNEL_ID" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="PROVIDER_INFO" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="SERVICE_INFO" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ERRCODE" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ERRDESC" type="xs:string" minOccurs="0"/>
+                        <xs:element name="URL" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="NCC_WSDL">
+        <wsdl:port name="NCC_PortTypeEndpoint0" binding="tns:NCC_PortTypeEndpoint0Binding">
+            <soap:address location="https://ebank.bidv.com.vn/BIDVGateway/WS"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="NCC_PortType">
+        <wsdl:operation name="GetName247">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry_new">
+            <wsdl:input message="tns:NCC_MessageInput"/>
+            <wsdl:output message="tns:NCC_MessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="Confirm">
+            <wsdl:input message="tns:Confirm_InMessage"/>
+            <wsdl:output message="tns:Confirm_OutMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="verify">
+            <wsdl:input message="tns:NCC_MessageInput"/>
+            <wsdl:output message="tns:NCC_MessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="link">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="confirmWallet">
+            <wsdl:input message="tns:ConfirmWallet_InMessage"/>
+            <wsdl:output message="tns:ConfirmWallet_OutMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="Tranfer2Bank247">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBankList247">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetNameBIDV">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="wallet2Bank">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="verifyKyc">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry">
+            <wsdl:input message="tns:NCC_MessageInput"/>
+            <wsdl:output message="tns:NCC_MessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="bank2Wallet">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="linkEnterprise">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="Check_bank2Wallet">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="unLink">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="checkOtp">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="refund">
+            <wsdl:input message="tns:NCC_MessageInput"/>
+            <wsdl:output message="tns:NCC_MessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="checkLink">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="providerBalance">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="inittrans">
+            <wsdl:input message="tns:NCC_MessageInput"/>
+            <wsdl:output message="tns:NCC_MessageOutput"/>
+        </wsdl:operation>
+        <wsdl:operation name="Tranfer2BankBIDV">
+            <wsdl:input message="tns:NCC_WalletMessageInput"/>
+            <wsdl:output message="tns:NCC_WalletMessageOutput"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="NCC_PortTypeEndpoint0Binding" type="tns:NCC_PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetName247">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//GetName247"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry_new">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//inquiry_new"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Confirm">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//Confirm"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verify">
+            <soap:operation style="document" soapAction="/WSDL-service2.serviceagent/NCC_PortTypeEndpoint2/verify"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="link">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//link"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="confirmWallet">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//confirmWallet"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Tranfer2Bank247">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//Tranfer2Bank247"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBankList247">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//GetBankList247"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetNameBIDV">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//GetNameBIDV"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="wallet2Bank">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//wallet2Bank"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verifyKyc">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//verifyKyc"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inquiry">
+            <soap:operation style="document" soapAction="/WSDL-service2.serviceagent/NCC_PortTypeEndpoint2/inquiry"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="bank2Wallet">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//bank2Wallet"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="linkEnterprise">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//linkEnterprise"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Check_bank2Wallet">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//Check_bank2Wallet"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unLink">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//unLink"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="checkOtp">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//checkOtp"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="refund">
+            <soap:operation style="document" soapAction="/WSDL-service2.serviceagent/NCC_PortTypeEndpoint2/refund"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="checkLink">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//checkLink"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="providerBalance">
+            <soap:operation style="document" soapAction="/WSDL-service0.serviceagent/NCC_PortTypeEndpoint0/providerBalance"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inittrans">
+            <soap:operation style="document" soapAction="/WSDL-service2.serviceagent/NCC_PortTypeEndpoint2/inittrans"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Tranfer2BankBIDV">
+            <soap:operation style="document" soapAction="/NCC_WSDL.serviceagent//Tranfer2BankBIDV"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Input"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Output"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="NCC_WalletMessageInput">
+        <wsdl:part name="Input" element="ns0:root"/>
+    </wsdl:message>
+    <wsdl:message name="NCC_WalletMessageOutput">
+        <wsdl:part name="Output" element="ns1:root"/>
+    </wsdl:message>
+    <wsdl:message name="NCC_MessageInput">
+        <wsdl:part name="Input" element="ns2:root"/>
+    </wsdl:message>
+    <wsdl:message name="NCC_MessageOutput">
+        <wsdl:part name="Output" element="ns3:root"/>
+    </wsdl:message>
+    <wsdl:message name="Confirm_InMessage">
+        <wsdl:part name="input" element="ns4:MSG"/>
+    </wsdl:message>
+    <wsdl:message name="Confirm_OutMessage">
+        <wsdl:part name="output" element="ns4:MSG"/>
+    </wsdl:message>
+    <wsdl:message name="ConfirmWallet_InMessage">
+        <wsdl:part name="input" element="ns5:MSG"/>
+    </wsdl:message>
+    <wsdl:message name="ConfirmWallet_OutMessage">
+        <wsdl:part name="output" element="ns5:MSG"/>
+    </wsdl:message>
+</wsdl:definitions>

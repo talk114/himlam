@@ -1,0 +1,82 @@
+-------------------------------Trước khi mã hóa
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.techcombank.com.vn/services/bank/collection/v1">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<XferReq xmlns="http://www.techcombank.com.vn/services/bank/collection/v1">
+			<ReqGnlInf>
+				<Id>1234567897</Id>
+				<TxId>1234567897</TxId>
+				<CreDtTm>2020-12-22</CreDtTm>
+				<PmtTp>CASHOUT</PmtTp>
+				<Desc>Domestics Fund Transfer</Desc>
+				<Sgntr>
+					<Sgntr1 user="public_key_sha256_1">ZAQF3QvOwSX3tJM9JjzSKnqnwCUPut7cr7EPCBJuOib8XA+920MnQ6jIxvTNu1Po2MYAtoEJodJaCrNIqjstqRjNBH+anBjKXluSiR5DGkyFuonyx01lCVG+McmSVu/nWNheALf022NDnBJDXIMFRutVjGJ+k2sEEejpPNmPnfmZM+0jYo9bZ3a6T4yrUO7zh/eKitObiOE0yOm+U3eeEsGl/rnAzcTV7sMVmSua97KU+kx9poAwOyj32GgLOmlews/ivqVjo4EsRlgYc2RDitKNH+eR5z2WB4Z1aPPbrwau8qvf7n91ewetke5qm+ZTV+rEetFRJpe5jiJlMfLijw==</Sgntr1>
+					<Sgntr2 user="public_key_sha256_2">kGeSghIuozvRq3cO7lAg0NPE07gjmK/owXSo6QcH/odMO3HYAqNS4l7PdNLeWSfhnwXL3MhowaGcX1TPn7UKMhFD/9U3IGGFrIaWTRkMeJR+JTeXm4mkcUIv2Bd6V1yqXnBv8Z8Klta6NAqO4Gt+gkamoQ/2SuNev5y2NfUHk9OSwH8hAJuKM/iYnu2eduiNAQoR9ROsriBYAwRe6JvI88+0YI9D7TPAhCzHYhZJCzhI5IWbUT6uvUU+MfTQs87lWz9ClB43R9EwIh+IfnNtBdWMHPHpXn0KdcERtItqgu4KE8ABlGoDE0J2LYWFqIPzGQjb42hkc6GVS2yL6GIjOw==</Sgntr2>
+				</Sgntr>
+			</ReqGnlInf>
+			<Envt>
+				<SrcPty>
+					<Nm>FWK</Nm>
+				</SrcPty>
+				<TrgtPty>
+					<Nm>H2H</Nm>
+				</TrgtPty>
+				<Rqstr>
+					<Nm>TCB</Nm>
+				</Rqstr>
+				<TrgtPty/>
+			</Envt>
+			<ReqInf>
+				<TxTp>DOMESTIC</TxTp>
+				<TxDt>2020-12-22</TxDt>
+				<TxAmt>50000</TxAmt>
+				<Desc>Thanh toan hoa don abcxyz</Desc>
+				<FrAcct>
+					<AcctId>10210200715015</AcctId>
+					<AcctTitl>TCB ABC</AcctTitl>
+				</FrAcct>
+				<ToAcct>
+					<AcctId>19034103227014</AcctId>
+					<AcctTitl>NGUYEN VAN B</AcctTitl>
+					<FIData>
+						<CITAD>01311001</CITAD>
+					</FIData>
+				</ToAcct>
+			</ReqInf>
+		</XferReq>
+	</soapenv:Body>
+</soapenv:Envelope>
+
+
+--------------Sau khi mã hóa
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.techcombank.com.vn/services/bank/collection/v1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v1:XferReq xmlns="http://www.techcombank.com.vn/services/bank/collection/v1">
+         <v1:ReqGnlInf>
+            <v1:Id>1234567897</v1:Id>
+            <v1:TxId>1234567897</v1:TxId>
+            <v1:CreDtTm>2020-12-22</v1:CreDtTm>
+            <v1:PmtTp>CASHOUT</v1:PmtTp>
+            <v1:Desc>Domestics Fund Transfer</v1:Desc>
+            <v1:Sgntr>
+               <v1:Sgntr1 user="public_key_sha256_1">ZAQF3QvOwSX3tJM9JjzSKnqnwCUPut7cr7EPCBJuOib8XA+920MnQ6jIxvTNu1Po2MYAtoEJodJaCrNIqjstqRjNBH+anBjKXluSiR5DGkyFuonyx01lCVG+McmSVu/nWNheALf022NDnBJDXIMFRutVjGJ+k2sEEejpPNmPnfmZM+0jYo9bZ3a6T4yrUO7zh/eKitObiOE0yOm+U3eeEsGl/rnAzcTV7sMVmSua97KU+kx9poAwOyj32GgLOmlews/ivqVjo4EsRlgYc2RDitKNH+eR5z2WB4Z1aPPbrwau8qvf7n91ewetke5qm+ZTV+rEetFRJpe5jiJlMfLijw==</v1:Sgntr1>
+               <v1:Sgntr2 user="public_key_sha256_2">kGeSghIuozvRq3cO7lAg0NPE07gjmK/owXSo6QcH/odMO3HYAqNS4l7PdNLeWSfhnwXL3MhowaGcX1TPn7UKMhFD/9U3IGGFrIaWTRkMeJR+JTeXm4mkcUIv2Bd6V1yqXnBv8Z8Klta6NAqO4Gt+gkamoQ/2SuNev5y2NfUHk9OSwH8hAJuKM/iYnu2eduiNAQoR9ROsriBYAwRe6JvI88+0YI9D7TPAhCzHYhZJCzhI5IWbUT6uvUU+MfTQs87lWz9ClB43R9EwIh+IfnNtBdWMHPHpXn0KdcERtItqgu4KE8ABlGoDE0J2LYWFqIPzGQjb42hkc6GVS2yL6GIjOw==</v1:Sgntr2>
+            </v1:Sgntr>
+         </v1:ReqGnlInf>
+         <v1:Envt>
+            <v1:SrcPty>
+               <v1:Nm>FWK</v1:Nm>
+            </v1:SrcPty>
+            <v1:TrgtPty>
+               <v1:Nm>H2H</v1:Nm>
+            </v1:TrgtPty>
+            <v1:Rqstr>
+               <v1:Nm>TCB</v1:Nm>
+            </v1:Rqstr>
+            <v1:TrgtPty/>
+         </v1:Envt>
+         <v1:ReqInf>WxUc5GPHcKhyBiQVN3q4k3AQKeKUKD0cShRZp1tS9XtNq0SpnhcwMid6CpAnfc2LYLW6CVx0/WXemMeql39qN1rGltNdOpy7PVAFTTtGzQWpAj5h7tTtZbCnitlH73eFVQdE/DjJGokAcLtrhzsqiGPDnOEKA1VMsJ62vFX3qJqPaFd8a4oWONnuU1gDZhr9ZgjwzDDsnQH0RCcFE67LoBMVe12ZllJiLPZhYM9E0XksK+EEnSx7KKhNA/PIwMv8rV12ATgboKFKu67jQZ70nZXMIe1rp0WsFywXQp2v0WZboQ9t1He2NtjtJierK9xv2wjOHFlfrbhefbfWL5L8tBv11mRTECu5Gk5xnVBTscTmO4rBwchMmk3erUuSdmwxAXxr4YJ7RXjyTpSGX1uqYp6/PrmvHQjkb6gw+Y3a4ettR68B6aJewGDKDg6vI/lclRz31SerIVhQp0jcSuSs4pfO2v2PTXE7Gcsp1LslWn32199c/ENDBJu0R9r5OlkhiYYwFylX1qYnz1jXFymI+NACs+vqb82729I/2CMNaQem2kT90AD8qM2x0a/lyRbhFJqsJoJsLC8HvJuvfkLK/N47Woy3bXpEhQqElZlp+7GVp4uo//W7L+CE6Ln/8UwlNaDRI8uV8pgphRIjSrtG2Kn8WDMwF22CN9ec/tco4TcUReyIRUWOJSyhpNnkTYC2wE+BTMuABrzQgYmx87pQBKl9/5+FGwvrraC3CjbhWeLJ3FI0VVzofgveb/eRTbYfUl1vRbLTzpfImpeyoq2s31jQiL3qnlKniqn9W+Do79QttdH3Byfn52D9XCCOI6RedNh9M/r5l9uoeAM7EEGi2ztFQdocR8ghrgOAaUvLe/I9kEItneTjo/H0B7xlzXjleqoQz1mvyuwckpMJlzfY8HxXUz5NLzrsnoiy+Vvplp2uKzMD9kUbm9LhTe/M+NeO/WfKd5m3WALygUVGvwjATKW7OV2Ci+m4rl8LcUMYuVxHwOo8zy3q1D8cF0wrdoIxzTaWFLrYUXxyhrrfPGYZprC6rgovliqZr5vFYFBewp03XD4ZesXUnjJpGCal/cqaTCyu6qrecjV+t+oqRAdezlb3IxNjPTmoCc1XTzepaDoVFgFhoQm3SXuv0BO/964Etbr13CkkpLTj52BIdj4wSYvWgKv1z3yJtL5GcLHo5dMfH06Alkx2hQTuvhyHvhzOAq4fNScqwyg5Y3/xj+nn0n3owTKcrL028IkpC+RY6beK9SC8oLOFfm+mxRY9T08x0eCEa50rHwHt8dESZ3b072WWAmnQbPnwQpIFALhSRjvQV/Egv0ktakqu+ra8</v1:ReqInf>
+      </v1:XferReq>
+   </soapenv:Body>
+</soapenv:Envelope>

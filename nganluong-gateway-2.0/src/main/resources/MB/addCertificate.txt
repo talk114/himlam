@@ -1,0 +1,26 @@
+Command add VTB certificate to trustore
+/usr/lib/jvm/java-7-oracle/jre/bin/keytool -import -alias api-uat.vietinbank.vn -keystore /usr/lib/jvm/java-7-oracle/jre/lib/security/cacerts -file /home/vinhnt/upload/UAT-API-MGMT-01.crt
+
+Gen Key Pair:
+1/ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:1024
+2/ openssl req -new -x509 -key private_key.pem -out public_key.pem -days 3650
+	Country Name (2 letter code) [AU]:VN
+	State or Province Name (full name) [Some-State]:HN
+	Locality Name (eg, city) []:Hanoi
+	Organization Name (eg, company) [Internet Widgits Pty Ltd]:NEXTTECH
+	Organizational Unit Name (eg, section) []:NGANLUONG
+	Common Name (e.g. server FQDN or YOUR name) []:NGANLUONG
+	Email Address []:nganluong@peacesoft.net
+	
+3/ openssl x509 -inform PEM -in public_key.pem -outform DER -out certificate.cer
+
+	Country Name (2 letter code) [AU]:VN
+	State or Province Name (full name) [Some-State]:HN
+	Locality Name (eg, city) []:Hanoi
+	Organization Name (eg, company) [Internet Widgits Pty Ltd]:NEXTTECH
+	Organizational Unit Name (eg, section) []:NGANLUONG
+	Common Name (e.g. server FQDN or YOUR name) []:NGANLUONG
+	Email Address []:nganluong@peacesoft.net
+
+4/ Convert a DER file (.crt .cer .der) to PEM
+openssl x509 -inform der -in certificate.cer -out certificate.pem

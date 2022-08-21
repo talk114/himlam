@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Appenders>
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <RollingRandomAccessFile name="LogToRollingRandomAccessFile" fileName="/data/tomcat/log/gateway2_log.log"
+                                 filePattern="/data/tomcat/log/gateway2_log-%d{MM-dd-yyyy}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <JSONLayout compact="true" eventEol="true">
+                <KeyValuePair key="@timestamp" value="$${date:yyyy-MM-dd HH:mm:ss.SSS}" />
+                <!--Thêm key title để kibana server Log nhận diện là của gateway, key này cố định thống nhất với bên vận hành-->
+                <KeyValuePair key="@tile" value="nl-gateway-0-172" />
+                <KeyValuePair key="@trans_id" value="$${ctx:trans_id}"/>
+            </JSONLayout>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="1GB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingRandomAccessFile>
+
+        <Async name="Async">
+            <!-- reference to other appenders -->
+            <AppenderRef ref="LogToRollingRandomAccessFile"/>
+        </Async>
+
+    </Appenders>
+    <Loggers>
+        <!-- avoid duplicated logs with additivity=false -->
+        <Logger name="vn.nganluong.naba" level="debug" additivity="false">
+            <AppenderRef ref="Async"/>
+        </Logger>
+
+        <Logger name="gateway" level="debug" additivity="false">
+            <AppenderRef ref="Async"/>
+        </Logger>
+        <Logger name="org.springframework.boot" level="error" additivity="false">
+            <AppenderRef ref="Async"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Async"/>
+        </Root>
+    </Loggers>
+</Configuration>
